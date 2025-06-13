@@ -28,7 +28,7 @@ async def welcome():
     return "Welcome to our Bill Support Analyzer API"
 
 @app.get('/support/by_legislator')
-async def classify_text():
+async def by_legislator():
     try:
         votes_by_legislator = vote_results.groupby(['legislator_id', 'vote_type']).size().unstack(fill_value=0)
         votes_by_legislator.columns = ['yea', 'nay']
@@ -44,7 +44,7 @@ async def classify_text():
         )
 
 @app.get('/support/by_bill')
-async def classify_text():
+async def by_bill():
     try:
         votes_by_bill = vote_results.groupby(['vote_id', 'vote_type']).size().unstack(fill_value=0)
         votes_by_bill.columns = ['supported', 'opposed']
