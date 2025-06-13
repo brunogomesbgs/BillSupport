@@ -40,7 +40,7 @@ async def by_legislator():
     except Exception as e:
         raise HTTPException(
             status_code=500,
-            detail=f"An error occurred while trying to classify {e}"
+            detail=f"An error occurred while trying to list by Legislator {e}"
         )
 
 @app.get('/support/by_bill')
@@ -59,5 +59,5 @@ async def by_bill():
     except Exception as e:
         raise HTTPException(
             status_code=500,
-            detail=f"An error occurred while trying to classify {e}"
+            detail=f"An error occurred while trying to list by Bill {e}"
         )
